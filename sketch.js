@@ -8,11 +8,11 @@ let aAcc = 0;
 
 function setup(){
     createCanvas(400,400);
-    background(125);
     angle = PI/4;
 }
 
 function draw(){
+    background(125);
     translate(startX,startY);
     let bobX = len * sin(angle);
     let bobY = len * cos(angle);
@@ -22,6 +22,10 @@ function draw(){
     stroke(255);
     strokeWeight(2);
 
-    
+    aAcc = -.008*  sin(angle); 
+    angle +=aVelocity;
+    aVelocity += aAcc;
 
+    aVelocity *=.991;
+    print(aAcc);
 }
