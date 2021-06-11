@@ -8,7 +8,8 @@ let aAcc = 0;
 
 function setup(){
     createCanvas(400,400);
-    angle = PI/4;
+    angle = -PI/2;
+    frameRate(60);
 }
 
 function draw(){
@@ -22,10 +23,9 @@ function draw(){
     stroke(255);
     strokeWeight(2);
 
-    aAcc = -.008*  sin(angle); 
-    angle +=aVelocity;
-    aVelocity += aAcc;
+    aAcc = (-9.8 *  sin(angle)); 
+    aVelocity += aAcc/60;
+    angle +=aVelocity/60;
 
-    aVelocity *=.991;
-    print(aAcc);
+    aVelocity *=.999;
 }
